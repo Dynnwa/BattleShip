@@ -1,8 +1,11 @@
 package Battle;
 
+import Console.ConsoleShip;
+
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+
+        ConsoleShip c = new ConsoleShip();
     }
 }

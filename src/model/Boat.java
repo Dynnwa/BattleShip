@@ -1,5 +1,6 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Boat {
@@ -7,6 +8,7 @@ public class Boat {
     public List<Square> positions;
     public int size;
     public int afloat;
+    public boolean horizontal;
     public boolean sunk;
 
     public Boat(Boattype type) {
@@ -21,7 +23,7 @@ public class Boat {
         }
         afloat = size;
         sunk = false;
-        positions = null;
+        positions = new ArrayList<>();
         boattype = type;
     }
 
@@ -39,7 +41,12 @@ public class Boat {
     }
 
     public void addSquare(Square s) {
+        s.state = State.OCCUPIED;
         positions.add(s);
+    }
+
+    public void removeSquare(Square s) {
+        positions.remove(s);
     }
 
 }
