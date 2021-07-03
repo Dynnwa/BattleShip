@@ -2,7 +2,7 @@ package model;
 
 public class Square {
     public State state;
-    public static int pos;
+    public int pos;
 
     public Square(int p) {
         state = State.EMPTY;

@@ -36,6 +36,39 @@ public class ConsoleShip {
     }
 
     private void playGame() {
+        boolean game = true;
+        while (game) {
+            System.out.println("player one goes");
+            System.out.println("guess:");
+            scanner.nextInt();
+            int pos1 = scanner.nextInt();
+            if (board2.hit(pos1)) {
+                System.out.println("player two got hit at" + pos1);
+            } else {
+                System.out.println("nothing but water here!");
+            }
+            if (board2.gone()) {
+                System.out.println("player one wins!");
+                game = false;
+                break;
+            }
+
+            System.out.println("player two goes");
+            System.out.println("guess:");
+            scanner.nextInt();
+            int pos2 = scanner.nextInt();
+            if (board1.hit(pos2)) {
+                System.out.println("player one got hit at" + pos2);
+            } else {
+                System.out.println("nothing but water here!");
+            }
+            if (board1.gone()) {
+                System.out.println("player two wins!");
+                game = false;
+                break;
+            }
+        }
+
     }
 
     public void setupGame(Board board) {
