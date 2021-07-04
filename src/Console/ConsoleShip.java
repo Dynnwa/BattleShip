@@ -9,7 +9,6 @@ public class ConsoleShip {
     private Scanner scanner;
     private Boat b;
     private Board board1, board2;
-    //private boolean stop = false;
 
     public ConsoleShip() {
         scanner = new Scanner(System.in);
@@ -40,32 +39,30 @@ public class ConsoleShip {
         while (game) {
             System.out.println("player one goes");
             System.out.println("guess:");
-            scanner.nextInt();
-            int pos1 = scanner.nextInt();
+            scanner.nextLine();
+            int pos1 = (int) scanner.nextLong();
             if (board2.hit(pos1)) {
-                System.out.println("player two got hit at" + pos1);
+                System.out.println("player two got hit at " + pos1);
+                if (board2.gone()) {
+                    System.out.println("player one wins!");
+                    break;
+                }
             } else {
                 System.out.println("nothing but water here!");
-            }
-            if (board2.gone()) {
-                System.out.println("player one wins!");
-                game = false;
-                break;
             }
 
             System.out.println("player two goes");
             System.out.println("guess:");
-            scanner.nextInt();
-            int pos2 = scanner.nextInt();
+            scanner.nextLine();
+            int pos2 = (int) scanner.nextLong();
             if (board1.hit(pos2)) {
-                System.out.println("player one got hit at" + pos2);
+                System.out.println("player one got hit at " + pos2);
+                if (board1.gone()) {
+                    System.out.println("player two wins!");
+                    break;
+                }
             } else {
                 System.out.println("nothing but water here!");
-            }
-            if (board1.gone()) {
-                System.out.println("player two wins!");
-                game = false;
-                break;
             }
         }
 
@@ -82,12 +79,11 @@ public class ConsoleShip {
             System.out.println("d -> destroyer(2)");
             scanner.nextLine();
             String boattype = scanner.nextLine();
-            //System.out.println(scanner.nextLine());
+
             switch (boattype) {
                 case "car":
                     b = new Boat(Boattype.CARRIER);
-                    allboats.add("Carreier");
-                    break;
+                    allboats.add("Carreier"); break;
                 case "b":
                     b = new Boat(Boattype.BATTLESHIP);
                     allboats.add("Battleship"); break;
@@ -101,6 +97,7 @@ public class ConsoleShip {
                     b = new Boat(Boattype.DESTROYER);
                     allboats.add("Desstroyer"); break;
             }
+
             for (int i = 0; i < b.size; i++) {
                 System.out.println("what position will ur ship be in?");
                 scanner.nextLine();
