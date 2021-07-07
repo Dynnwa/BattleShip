@@ -8,6 +8,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.zip.CRC32;
 
 public class Setuppage implements ActionListener {
@@ -22,9 +24,10 @@ public class Setuppage implements ActionListener {
     protected JLabel description;
     protected JLabel baots;
     protected Board board;
+    protected int numboats = 5;
 
-    public Setuppage() {
-        this.board = new Board();
+    public Setuppage(Board b) {
+        this.board = b;
         frame = new JFrame();
         Carrier = new JButton("Carrier");
         Destoyer = new JButton("Destroyer");
@@ -35,7 +38,6 @@ public class Setuppage implements ActionListener {
         baots = new JLabel();
 
         setLabel(description, 75, 10, 250, 15, "Which boat do you want to add?");
-        setLabel(baots, 75, 40, 250, 15, "You have already placed:");
 
         setButton(Carrier, 120, 200);
         setButton(Destoyer, 120, 240);
@@ -54,7 +56,6 @@ public class Setuppage implements ActionListener {
         frame.add(Battleship);
         frame.add(Cruiser);
         frame.add(description);
-        frame.add(baots);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(framewidth, framelength);
         frame.setLayout(null);
@@ -79,23 +80,29 @@ public class Setuppage implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         Boat b;
-        if (e.getSource() == Cruiser) {
-            b = new Boat(Boattype.CRUISER);
-// 3
-        } else if (e.getSource() == Battleship) {
-            b = new Boat(Boattype.BATTLESHIP);
-// 4
-        } else if (e.getSource() == Carrier) {
-            b = new Boat(Boattype.CARRIER);
-// 5
-        } else if (e.getSource() == Destoyer) {
-            b = new Boat(Boattype.DESTROYER);
-// 2
-        } else {
-            b = new Boat(Boattype.SUBMARINE);
-// 3
+        if (numboats > 0) {
+            if (e.getSource() == Cruiser) {
+                b = new Boat(Boattype.CRUISER);
+                frame.remove(Cruiser);
+            } else if (e.getSource() == Battleship) {
+                b = new Boat(Boattype.BATTLESHIP);
+                frame.remove(Battleship);
+            } else if (e.getSource() == Carrier) {
+                b = new Boat(Boattype.CARRIER);
+                frame.remove(Carrier);
+            } else if (e.getSource() == Destoyer) {
+                b = new Boat(Boattype.DESTROYER);
+                frame.remove(Destoyer);
+            } else {
+                b = new Boat(Boattype.SUBMARINE);
+                frame.remove(Submarine);
+            }
+            Addboat addboat = new Addboat(board, b);
+            numboats--;
+            if (numboats == 0) {
+                frame.dispose();
+            }
         }
-        Addboat addboat = new Addboat(board, b);
 
 
     }
