@@ -8,9 +8,6 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.zip.CRC32;
 
 public class Selectboat implements ActionListener {
     private static final int framewidth = 420;
