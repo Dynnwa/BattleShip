@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 public class Square {
     public State state;

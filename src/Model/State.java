@@ -1,4 +1,4 @@
-package model;
+package Model;
 
 
 // square represents one square on a board, this square has the option of being either empty
