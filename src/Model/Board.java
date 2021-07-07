@@ -34,7 +34,7 @@ public class Board {
         return false;
     }
 
-    public boolean gone() {
+    public boolean done() {
         for (int i = 0; i< this.squares.size(); i++) {
             if (this.squares.get(i).state == State.OCCUPIED) {
                 return false;

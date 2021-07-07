@@ -43,7 +43,7 @@ public class ConsoleShip {
             int pos1 = (int) scanner.nextLong();
             if (board2.hit(pos1)) {
                 System.out.println("player two got hit at " + pos1);
-                if (board2.gone()) {
+                if (board2.done()) {
                     System.out.println("player one wins!");
                     break;
                 }
@@ -57,7 +57,7 @@ public class ConsoleShip {
             int pos2 = (int) scanner.nextLong();
             if (board1.hit(pos2)) {
                 System.out.println("player one got hit at " + pos2);
-                if (board1.gone()) {
+                if (board1.done()) {
                     System.out.println("player two wins!");
                     break;
                 }

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.CRC32;
 
-public class Setuppage implements ActionListener {
+public class Selectboat implements ActionListener {
     private static final int framewidth = 420;
     private static final int framelength = framewidth;
     protected JFrame frame;
@@ -26,7 +26,7 @@ public class Setuppage implements ActionListener {
     protected Board board;
     protected int numboats = 5;
 
-    public Setuppage(Board b) {
+    public Selectboat(Board b) {
         this.board = b;
         frame = new JFrame();
         Carrier = new JButton("Carrier");
@@ -101,6 +101,7 @@ public class Setuppage implements ActionListener {
             numboats--;
             if (numboats == 0) {
                 frame.dispose();
+                Playgame p1 = new Playgame(board);
             }
         }
 

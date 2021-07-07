@@ -15,8 +15,11 @@ public class Homepage implements ActionListener {
     protected JButton quit;
     protected JLabel title;
     protected JLabel description;
+    protected Board board1, board2;
 
     public Homepage() {
+        board1 = new Board();
+        board2 = new Board();
         frame = new JFrame();
         start = new JButton("Start Game");
         quit = new JButton("Quit :(");
@@ -63,8 +66,12 @@ public class Homepage implements ActionListener {
             frame.dispose();
         } else {
             frame.dispose();
-            Setuppage setup = new Setuppage();
-            frame.dispose();
+            Selectboat setup1 = new Selectboat(board1);
+            Selectboat setup2 = new Selectboat(board2);
+            //Playgame play = new Playgame(board1, board2);
+
+
+
         }
     }
 }
