@@ -4,6 +4,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
+// The board of the game is represented by a list of squares (100 in total)
 public class Board {
     public List<Square> squares;
     public int width;
