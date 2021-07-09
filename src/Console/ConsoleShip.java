@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+// This allows users to play a text based version of the game that has the positions on the board as numbers
 public class ConsoleShip {
     private Scanner scanner;
     private Boat b;
