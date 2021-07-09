@@ -3,6 +3,7 @@ package Model;
 import java.util.ArrayList;
 import java.util.List;
 
+// A boat is conprimsed of a list of squares and it has a size
 public class Boat {
     public Boattype boattype;
     public List<Square> positions;
