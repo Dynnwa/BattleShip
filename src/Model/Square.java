@@ -1,5 +1,7 @@
 package Model;
 
+// A square represents one grid spot on the board and has a status that represents whether it is water, occupied, or destoyed
+
 public class Square {
     public State state;
     public int pos;
